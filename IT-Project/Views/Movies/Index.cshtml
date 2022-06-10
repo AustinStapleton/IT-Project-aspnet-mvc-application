@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Movie>
+﻿
+@model IEnumerable<Movie>
 
 @{
     ViewData["Title"] = "List of Movies";
@@ -28,26 +29,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <p class="card-text">@item.Description</p>
+                            <p class="card-text">@Html.DisplayNameFor(model => model.Description)</p>
                             <p class="card-text"><b>Studio: </b>@item.Studio.Name</p>
+                            <p class="card-text"><b>Producer: </b>@Html.DisplayNameFor(model => model.Producer.FullName)</p>
                             <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
-                            <p class="card-text"><b>Start Date: </b>@item.ReleaseDate.ToString("dd MMM yy")</p>
-                            <p class="card-text"><b>End Date: </b>@item.RunTime.ToString("dd MMM yy")</p>
-                            <p class="card-text ">
-                                <b>Status: </b>
-                                @if (DateTime.Now >= item.ReleaseDate && DateTime.Now <= item.ReleaseDate)
-                                {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
-                                }
-                                else if (DateTime.Now > item.ReleaseDate)
-                                {
-                                    <span class="badge bg-danger text-white">EXPIRED</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
-                                }
-                            </p>
+                            <p class="card-text"><b>Release Date: </b>@item.ReleaseDate.ToString("dd MMM yy")</p>                          
 
                         </div>
                     </div>
@@ -57,7 +43,7 @@
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.Id">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
-                                <a class="btn btn-success text-white @((DateTime.Now > item.ReleaseDate) ? "disabled" : "")" 
+                                <a
                                    asp-controller="Orders" 
                                    asp-action="AddItemToShoppingCart" 
                                    asp-route-id="@item.Id">

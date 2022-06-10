@@ -1,4 +1,5 @@
-﻿using IT_Project.Data.Enums;
+﻿using IT_Project.Data.Base;
+using IT_Project.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IT_Project.Models
 {
-    public class Movie
+    public class Movie:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -25,6 +26,7 @@ namespace IT_Project.Models
         public int StudioId { get; set; }
         [ForeignKey("StudioId")]
         public Studio Studio { get; set; }
+
 
         //Producer
         public int ProducerId { get; set; }

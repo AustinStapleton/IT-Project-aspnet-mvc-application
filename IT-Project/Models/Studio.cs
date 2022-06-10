@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using IT_Project.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IT_Project.Models
 {
-    public class Studio
+    public class Studio:IEntityBase
     {
         [Key]
         public int Id { get; set; }

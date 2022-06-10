@@ -1,10 +1,9 @@
-﻿using IT_Project.Data.Base;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IT_Project.Models
 {
-    public class Producer:IEntityBase
+    public class Director
     {
         [Key]
         public int Id { get; set; }
@@ -23,4 +22,3 @@ namespace IT_Project.Models
         public List<Movie> Movies { get; set; }
     }
 }
-

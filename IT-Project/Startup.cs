@@ -1,4 +1,5 @@
 using IT_Project.Data;
+using IT_Project.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,11 @@ namespace IT_Project
         {
             //DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+            // services configuration 
+            services.AddScoped<IActorsService, ActorsService>();
+            services.AddScoped<IProducersService, ProducersService>();
+            services.AddScoped<IStudiosService, StudiosService>();
+            services.AddScoped<IMoviesService, MoviesService>();
             services.AddControllersWithViews();
         }
 

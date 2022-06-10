@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using IT_Project.Data.Base;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace IT_Project.Models
 {
-    public class Actor
+    public class Actor:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -12,7 +13,7 @@ namespace IT_Project.Models
         public string ProfilePictureURL { get; set; }
         [Display(Name = "Full Name")]
         [Required(ErrorMessage = "Full Name is required")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Full Name must be between 3 and 50 chars")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Full Name must be between 3 and 50 characters")]
         public string FullName { get; set; }
         [Display(Name = "Biography")]
         [Required(ErrorMessage = "Biography is required")]
